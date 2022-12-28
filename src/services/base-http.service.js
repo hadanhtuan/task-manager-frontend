@@ -9,7 +9,7 @@ export default class BaseHttpService {
   }
 
   async get(endpoint, options = {}) {
-    Object.assign(options, this._getCommonOptions());
+    Object.assign(options, this._getCommonOptions()); // add headers to api
     return axios.get(`${this.BASE_URL}/${endpoint}`, options)
       .catch(error => this._handleHttpError(error));
   }
